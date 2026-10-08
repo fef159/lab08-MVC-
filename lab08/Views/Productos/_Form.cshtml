@@ -1,0 +1,60 @@
+@model Producto
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    var proveedores = (SelectList)ViewData["Proveedores"]!;
+    var categorias = (SelectList)ViewData["Categorias"]!;
+}
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="row g-3">
+    <div class="col-md-8">
+        <label asp-for="NombreProducto" class="form-label"></label>
+        <input asp-for="NombreProducto" class="form-control" />
+        <span asp-validation-for="NombreProducto" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="CantidadPorUnidad" class="form-label"></label>
+        <input asp-for="CantidadPorUnidad" class="form-control" />
+        <span asp-validation-for="CantidadPorUnidad" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="ProveedorID" class="form-label"></label>
+        <select asp-for="ProveedorID" asp-items="proveedores" class="form-select">
+            <option value="">Seleccione un proveedor</option>
+        </select>
+        <span asp-validation-for="ProveedorID" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="CategoriaID" class="form-label"></label>
+        <select asp-for="CategoriaID" asp-items="categorias" class="form-select">
+            <option value="">Seleccione una categoría</option>
+        </select>
+        <span asp-validation-for="CategoriaID" class="text-danger"></span>
+    </div>
+    <div class="col-md-3">
+        <label asp-for="PrecioUnidad" class="form-label"></label>
+        <input asp-for="PrecioUnidad" class="form-control" />
+        <span asp-validation-for="PrecioUnidad" class="text-danger"></span>
+    </div>
+    <div class="col-md-3">
+        <label asp-for="UnidadesEnExistencia" class="form-label"></label>
+        <input asp-for="UnidadesEnExistencia" class="form-control" />
+        <span asp-validation-for="UnidadesEnExistencia" class="text-danger"></span>
+    </div>
+    <div class="col-md-3">
+        <label asp-for="UnidadesEnPedido" class="form-label"></label>
+        <input asp-for="UnidadesEnPedido" class="form-control" />
+        <span asp-validation-for="UnidadesEnPedido" class="text-danger"></span>
+    </div>
+    <div class="col-md-3">
+        <label asp-for="NivelDeReorden" class="form-label"></label>
+        <input asp-for="NivelDeReorden" class="form-control" />
+        <span asp-validation-for="NivelDeReorden" class="text-danger"></span>
+    </div>
+    <div class="col-12 form-check ms-2">
+        <input asp-for="Descontinuado" class="form-check-input" />
+        <label asp-for="Descontinuado" class="form-check-label"></label>
+    </div>
+</div>

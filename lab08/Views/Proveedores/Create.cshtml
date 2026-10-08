@@ -1,0 +1,61 @@
+@model Proveedor
+
+@{
+    ViewData["Title"] = "Nuevo proveedor";
+}
+
+<h1>Nuevo proveedor</h1>
+
+<form asp-action="Create" method="post" class="mt-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label asp-for="CompaniaNombre" class="form-label"></label>
+            <input asp-for="CompaniaNombre" class="form-control" />
+            <span asp-validation-for="CompaniaNombre" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="NombreContacto" class="form-label"></label>
+            <input asp-for="NombreContacto" class="form-control" />
+            <span asp-validation-for="NombreContacto" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="CargoContacto" class="form-label"></label>
+            <input asp-for="CargoContacto" class="form-control" />
+            <span asp-validation-for="CargoContacto" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Direccion" class="form-label"></label>
+            <input asp-for="Direccion" class="form-control" />
+            <span asp-validation-for="Direccion" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Ciudad" class="form-label"></label>
+            <input asp-for="Ciudad" class="form-control" />
+            <span asp-validation-for="Ciudad" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="CodigoPostal" class="form-label"></label>
+            <input asp-for="CodigoPostal" class="form-control" />
+            <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Pais" class="form-label"></label>
+            <input asp-for="Pais" class="form-control" />
+            <span asp-validation-for="Pais" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Telefono" class="form-label"></label>
+            <input asp-for="Telefono" class="form-control" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

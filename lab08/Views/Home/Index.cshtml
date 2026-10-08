@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="py-5 text-center">
+    <h1 class="display-5 fw-semibold">Neptuno MVC con Dapper</h1>
+    <p class="lead text-muted mx-auto" style="max-width: 720px">
+        Aplicación ASP.NET Core MVC para mantener productos y proveedores, y consultar pedidos por fecha mediante procedimientos almacenados.
+    </p>
+    <div class="d-flex gap-2 justify-content-center mt-4">
+        <a asp-controller="Productos" asp-action="Index" class="btn btn-primary btn-lg">Ver productos</a>
+        <a asp-controller="Pedidos" asp-action="Reporte" class="btn btn-outline-primary btn-lg">Consultar pedidos</a>
+    </div>
+</div>

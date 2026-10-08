@@ -1,0 +1,24 @@
+@model Producto
+
+<tr>
+    <td>@Model.NombreProducto</td>
+    <td>@(Model.NombreCategoria ?? "Sin categoría")</td>
+    <td>@(Model.NombreProveedor ?? "Sin proveedor")</td>
+    <td class="text-end">@Model.PrecioUnidad.ToString("C2")</td>
+    <td class="text-end">@Model.UnidadesEnExistencia</td>
+    <td>
+        @if (Model.Descontinuado)
+        {
+            <span class="badge bg-secondary">Descontinuado</span>
+        }
+        else
+        {
+            <span class="badge bg-success">Disponible</span>
+        }
+    </td>
+    <td class="text-nowrap">
+        <a asp-action="Details" asp-route-id="@Model.ProductoID" class="btn btn-sm btn-outline-info">Ver</a>
+        <a asp-action="Edit" asp-route-id="@Model.ProductoID" class="btn btn-sm btn-outline-primary">Editar</a>
+        <a asp-action="Delete" asp-route-id="@Model.ProductoID" class="btn btn-sm btn-outline-danger">Eliminar</a>
+    </td>
+</tr>

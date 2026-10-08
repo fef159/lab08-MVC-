@@ -1,0 +1,27 @@
+@model Producto
+
+@{
+    ViewData["Title"] = "Detalle del producto";
+}
+
+<h1>Detalle del producto</h1>
+
+<dl class="row mt-4">
+    <dt class="col-sm-3">Producto</dt>
+    <dd class="col-sm-9">@Model.NombreProducto</dd>
+    <dt class="col-sm-3">Categoría</dt>
+    <dd class="col-sm-9">@(Model.NombreCategoria ?? "Sin categoría")</dd>
+    <dt class="col-sm-3">Proveedor</dt>
+    <dd class="col-sm-9">@(Model.NombreProveedor ?? "Sin proveedor")</dd>
+    <dt class="col-sm-3">Cantidad por unidad</dt>
+    <dd class="col-sm-9">@(Model.CantidadPorUnidad ?? "No especificada")</dd>
+    <dt class="col-sm-3">Precio unitario</dt>
+    <dd class="col-sm-9">@Model.PrecioUnidad.ToString("C2")</dd>
+    <dt class="col-sm-3">Existencias</dt>
+    <dd class="col-sm-9">@Model.UnidadesEnExistencia</dd>
+    <dt class="col-sm-3">Estado</dt>
+    <dd class="col-sm-9">@(Model.Descontinuado ? "Descontinuado" : "Disponible")</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.ProductoID" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

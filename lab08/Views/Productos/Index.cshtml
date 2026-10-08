@@ -1,0 +1,51 @@
+@model IEnumerable<Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="mb-1">Productos</h1>
+        <p class="text-muted mb-0">Mantenimiento de productos activos de Neptuno.</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">Nuevo producto</a>
+</div>
+
+<form asp-action="Index" method="get" class="row g-2 mb-4">
+    <div class="col-sm-8 col-md-5">
+        <label for="busqueda" class="visually-hidden">Buscar por nombre</label>
+        <input id="busqueda" name="busqueda" value="@ViewData["Busqueda"]" class="form-control" placeholder="Buscar por nombre del producto" />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Limpiar</a>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Categoría</th>
+                <th>Proveedor</th>
+                <th class="text-end">Precio</th>
+                <th class="text-end">Stock</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in Model)
+            {
+                <partial name="_ProductoRow" model="producto" />
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No se encontraron productos activos.</div>
+}

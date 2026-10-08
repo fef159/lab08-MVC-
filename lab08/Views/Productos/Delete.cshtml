@@ -1,0 +1,14 @@
+@model Producto
+
+@{
+    ViewData["Title"] = "Eliminar producto";
+}
+
+<h1>Eliminar producto</h1>
+<p class="lead">¿Desea desactivar el producto <strong>@Model.NombreProducto</strong>?</p>
+<p class="text-muted">La eliminación es lógica: el registro permanecerá en la base de datos con Activo = 0.</p>
+
+<form asp-action="Delete" asp-route-id="@Model.ProductoID" method="post">
+    <button type="submit" class="btn btn-danger">Confirmar eliminación</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
